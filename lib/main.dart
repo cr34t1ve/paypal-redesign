@@ -6,5 +6,6 @@ import 'package:paypal_redesign/screens/wallet/wallet.dart';
 void main() {
   runApp(MaterialApp(
     home: Login(),
+    debugShowCheckedModeBanner: false,
   ));
 }
