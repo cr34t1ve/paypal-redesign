@@ -121,7 +121,7 @@ class _HomeState extends State<Home> {
                             colors: [Color(0xFF0070BA), Color(0xFF1546A0)]),
                         boxShadow: [
                           BoxShadow(
-                              color: Color(0xFF1546A0).withOpacity(0.1),
+                              color: Color(0xFF1546A0).withOpacity(0.05),
                               blurRadius: 48.0,
                               spreadRadius: 16,
                               offset: Offset(2, 8))
@@ -160,7 +160,7 @@ class _HomeState extends State<Home> {
                       decoration: BoxDecoration(
                         boxShadow: [
                           BoxShadow(
-                              color: Color(0xFF1546A0).withOpacity(0.1),
+                              color: Color(0xFF1546A0).withOpacity(0.05),
                               blurRadius: 48.0,
                               spreadRadius: 16,
                               offset: Offset(2, 8))
@@ -200,7 +200,7 @@ class _HomeState extends State<Home> {
                       decoration: BoxDecoration(
                         boxShadow: [
                           BoxShadow(
-                              color: Color(0xFF1546A0).withOpacity(0.1),
+                              color: Color(0xFF1546A0).withOpacity(0.05),
                               blurRadius: 48.0,
                               spreadRadius: 16,
                               offset: Offset(2, 8))
@@ -246,7 +246,27 @@ class _HomeState extends State<Home> {
                 SizedBox(
                   height: 15.0,
                 ),
-                HistoryTile(),
+                HistoryTile(
+                  leading: 'assets/images/M.svg',
+                  title: 'Mike Rine',
+                  sub: '2 hours ago',
+                  trailing: '+\$250',
+                  color: Color(0xFF37D39B)
+                ),
+                HistoryTile(
+                  leading: 'assets/images/Vectorgdrive.svg',
+                  title: 'Google Drive',
+                  sub: 'Yesterday',
+                  trailing: '-\$138.5',
+                  color: Color(0xFFF47090)
+                ),
+                HistoryTile(
+                  leading: 'assets/images/C.svg',
+                  title: 'Casey Smith',
+                  sub: '1 week ago',
+                  trailing: '+\$531',
+                  color: Color(0xFF37D39B)
+                ),
               ],
             ),
           )
@@ -263,11 +283,13 @@ class HistoryTile extends StatelessWidget {
     this.sub,
     this.title,
     this.trailing,
+    this.color,
   }) : super(key: key);
   final String leading;
   final String title;
   final String sub;
   final String trailing;
+  final Color color;
 
   @override
   Widget build(BuildContext context) {
@@ -306,7 +328,7 @@ class HistoryTile extends StatelessWidget {
               fontFamily: 'Manrope',
               fontSize: 12,
               fontWeight: FontWeight.w400,
-              color: Color(0xFF243656)),
+              color: Color(0xFF243656).withOpacity(0.5)),
         ),
         trailing: Text(
           trailing,
@@ -314,7 +336,7 @@ class HistoryTile extends StatelessWidget {
               fontFamily: 'Manrope',
               fontSize: 13,
               fontWeight: FontWeight.w600,
-              color: Color(0xFF37D39B)),
+              color: color),
         ),
       ),
     );
