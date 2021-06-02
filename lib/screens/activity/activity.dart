@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:paypal_redesign/models/activityAll.dart';
+import 'package:paypal_redesign/models/activityIncome.dart';
+import 'package:paypal_redesign/models/activityOutcome.dart';
 
 class Activity extends StatefulWidget {
   @override
@@ -116,10 +118,10 @@ class _ActivityState extends State<Activity>
               children: [
                 Tab(child: buildListView()),
                 Tab(
-                  child: buildListView(),
+                  child: buildListViewIncome(),
                 ),
                 Tab(
-                  child: buildListView(),
+                  child: buildListViewOutcome(),
                 )
               ],
             ),
