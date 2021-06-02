@@ -255,6 +255,7 @@ class _WalletState extends State<Wallet> {
           Scaffold(
             backgroundColor: Colors.transparent,
             appBar: AppBar(
+              centerTitle: true,
               leading: Icon(
                 Icons.arrow_back,
                 color: Colors.white,
