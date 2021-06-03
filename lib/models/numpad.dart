@@ -78,8 +78,8 @@ class _NumericKeyboardState extends State<NumericKeyboard> {
           ButtonBar(
             alignment: widget.mainAxisAlignment,
             children: <Widget>[
-              _calcButton('.'),
               _calcButton('0'),
+              _calcButton('.'),
               InkWell(
                   borderRadius: BorderRadius.circular(45),
                   onTap: widget.rightButtonFn,
@@ -103,8 +103,21 @@ class _NumericKeyboardState extends State<NumericKeyboard> {
           
         },
         child: Container(
+          decoration: BoxDecoration(
+            shape: BoxShape.circle,
+            color: Colors.white,
+            // borderRadius:
+            //                         BorderRadius.all(Radius.circular(20)),
+            boxShadow: [
+                  BoxShadow(
+                      color: Color(0xFF1546A0).withOpacity(0.07),
+                      blurRadius: 48.0,
+                      spreadRadius: 1,
+                      offset: Offset(0.0, 50.0))
+                ],
+          ),
           alignment: Alignment.center,
-          width: 72,
+          width: 72.75,
           height: 72,
           child: Text(
             value,
@@ -112,7 +125,7 @@ class _NumericKeyboardState extends State<NumericKeyboard> {
               fontFamily: 'Manrope',
                 fontSize: 24,
                 fontWeight: FontWeight.w600,
-                //color: Colors.black
+                color: Color(0xFF243656)
                 ),
           ),
         ));
