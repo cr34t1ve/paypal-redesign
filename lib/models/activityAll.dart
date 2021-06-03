@@ -145,9 +145,9 @@ Visibility simpleCoinsCard(Transaction transaction, BuildContext context) {
   return Visibility(
       // visible: transaction.isBuying,
       child: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 32.0, vertical: 4),
-        child: Container(
-    decoration: BoxDecoration(
+    padding: EdgeInsets.symmetric(horizontal: 32.0, vertical: 4),
+    child: Container(
+      decoration: BoxDecoration(
         color: Colors.white,
         boxShadow: [
           BoxShadow(
@@ -157,8 +157,8 @@ Visibility simpleCoinsCard(Transaction transaction, BuildContext context) {
               offset: Offset(0.0, 50.0))
         ],
         borderRadius: BorderRadius.circular(20.0),
-    ),
-    child: ListTile(
+      ),
+      child: ListTile(
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(20.0),
         ),
@@ -194,7 +194,7 @@ Visibility simpleCoinsCard(Transaction transaction, BuildContext context) {
               color:
                   transaction.isBuying ? Color(0xFF40A187) : Color(0xFFE56565)),
         ),
+      ),
     ),
-  ),
-      ));
+  ));
 }

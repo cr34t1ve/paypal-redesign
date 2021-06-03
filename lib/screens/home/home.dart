@@ -16,7 +16,7 @@ class _HomeState extends State<Home> {
           Row(
             children: [
               Container(
-                height: 316.0,
+                height: 310.0,
                 width: 375.0,
                 decoration: BoxDecoration(
                     image: DecorationImage(
