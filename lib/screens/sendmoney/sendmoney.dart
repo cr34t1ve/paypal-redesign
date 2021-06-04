@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:paypal_redesign/models/contactsData.dart';
 import 'package:paypal_redesign/models/numpad.dart';
 
 class SendMoney extends StatefulWidget {
+  final PaypalContacts paypalContacts;
+  // final String text;
+  SendMoney({@required this.paypalContacts});
   @override
   _SendMoneyState createState() => _SendMoneyState();
 }
@@ -24,9 +28,14 @@ class _SendMoneyState extends State<SendMoney> {
         backgroundColor: Colors.white,
         elevation: 0.0,
         centerTitle: true,
-        leading: Icon(
-          Icons.arrow_back,
-          color: Colors.black,
+        leading: IconButton(
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          icon: Icon(
+            Icons.arrow_back,
+            color: Colors.black,
+          ),
         ),
         title: Text(
           'Send Money',
@@ -69,7 +78,7 @@ class _SendMoneyState extends State<SendMoney> {
                   ),
                   child: Center(
                     child: Text(
-                      'A',
+                      widget.paypalContacts.name[0],
                       style: TextStyle(
                           fontFamily: 'Manrope',
                           fontSize: 17.0,
@@ -91,7 +100,7 @@ class _SendMoneyState extends State<SendMoney> {
                           color: Color(0xFF243656).withOpacity(0.5)),
                     ),
                     Text(
-                      'Andy Apenteng',
+                      widget.paypalContacts.name,
                       style: TextStyle(
                           fontFamily: 'Manrope',
                           fontSize: 16,
@@ -101,7 +110,7 @@ class _SendMoneyState extends State<SendMoney> {
                   ],
                 ),
                 subtitle: Text(
-                  'apenteng001@gmail.com',
+                  widget.paypalContacts.sub,
                   style: TextStyle(
                       fontFamily: 'Manrope',
                       fontSize: 12,
@@ -120,32 +129,21 @@ class _SendMoneyState extends State<SendMoney> {
                   fontWeight: FontWeight.w600,
                   fontSize: 40),
               readOnly: true,
-              // onChanged: (value) {
-              //   value = '\$ $text';
-              //   _amountController.text = value;
-              // },
               controller: _amountController,
               autofocus: true,
               keyboardType: TextInputType.emailAddress,
               decoration: InputDecoration(
-                contentPadding: EdgeInsets.all(10.0),
+                  contentPadding: EdgeInsets.all(10.0),
                   prefixIcon: Text(
                     '\$',
                     style: TextStyle(
-                  color: Color(0xFF243656),
-                  fontFamily: 'Manrope',
-                  fontWeight: FontWeight.w600,
-                  fontSize: 40),
+                        color: Color(0xFF243656),
+                        fontFamily: 'Manrope',
+                        fontWeight: FontWeight.w600,
+                        fontSize: 40),
                   ),
                   prefixIconConstraints:
                       BoxConstraints(minWidth: 0, minHeight: 0),
-                  hintText: 'Enter Amount',
-                  hintStyle: TextStyle(
-                      color: Color(0xFF243656).withOpacity(0.5),
-                      fontFamily: 'Manrope',
-                      fontWeight: FontWeight.w400,
-                      fontSize: 30),
-                  // contentPadding: EdgeInsets.fromLTRB(20, 25, 20, 25),
                   focusedBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(20.0),
                       borderSide:
@@ -165,7 +163,8 @@ class _SendMoneyState extends State<SendMoney> {
             textColor: Colors.black,
             rightButtonFn: () {
               setState(() {
-                _amountController.text = _amountController.text.substring(0, _amountController.text.length - 1);
+                _amountController.text = _amountController.text
+                    .substring(0, _amountController.text.length - 1);
                 print('delete key pressed');
               });
             },

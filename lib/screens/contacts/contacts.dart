@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:paypal_redesign/models/contactsData.dart';
+import 'package:paypal_redesign/screens/sendmoney/sendmoney.dart';
 
 class Contacts extends StatefulWidget {
   @override
@@ -115,64 +116,97 @@ class _ContactsState extends State<Contacts> {
                           BorderSide(color: Color(0xFFF5F7FA), width: 1.0))),
             ),
           ),
+          // ContactsCard(),
           Expanded(
             child: ListView.builder(
               // shrinkWrap: true,
               itemCount: items.length,
               itemBuilder: (context, index) {
-                return Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 32.0, vertical: 4),
-                  child: Container(
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      boxShadow: [
-                        BoxShadow(
-                            color: Color(0xFF1546A0).withOpacity(0.05),
-                            blurRadius: 48.0,
-                            spreadRadius: 1,
-                            offset: Offset(0.0, 50.0))
-                      ],
-                      borderRadius: BorderRadius.circular(20.0),
-                    ),
-                    child: ListTile(
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(20.0),
-                      ),
-                      leading: CircleAvatar(
-                        backgroundColor: Color(0xFFF5F7FA),
-                        child: Text(
-                          '${items[index].name[0].toString()}',
-                          style: TextStyle(
-                            fontFamily: 'Manrope',
-                            fontSize: 17.0,
-                            fontWeight: FontWeight.w700,
-                            color: Color(0xFF243656)
-                          ),
-                        ),
-                      ),
-                      title: Text(
-                        '${items[index].name.toString()}',
-                        style: TextStyle(
-                            fontFamily: 'Manrope',
-                            fontSize: 16,
-                            fontWeight: FontWeight.w400,
-                            color: Color(0xFF243656)),
-                      ),
-                      subtitle: Text(
-                        '${items[index].sub.toString()}',
-                        style: TextStyle(
-                            fontFamily: 'Manrope',
-                            fontSize: 12,
-                            fontWeight: FontWeight.w400,
-                            color: Color(0xFF243656).withOpacity(0.5)),
-                      ),
-                    ),
-                  ),
+                return ContactsCard(
+                  leading: paypalContacts[index].name[0],
+                  title: paypalContacts[index].name,
+                  sub: paypalContacts[index].sub,
+                  function: () {
+                    Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) =>
+                        SendMoney(paypalContacts: paypalContacts[index])));
+                  },
                 );
               },
             ),
           ),
         ],
+      ),
+    );
+  }
+}
+
+class ContactsCard extends StatelessWidget {
+  const ContactsCard({
+    Key key,
+    this.leading,
+    this.sub,
+    this.title,
+    this.function,
+  }) : super(key: key);
+  final String leading;
+  final String title;
+  final String sub;
+  final Function function;
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: EdgeInsets.symmetric(horizontal: 32.0, vertical: 4),
+      child: GestureDetector(
+        onTap: function,
+        child: Container(
+          decoration: BoxDecoration(
+            color: Colors.white,
+            boxShadow: [
+              BoxShadow(
+                  color: Color(0xFF1546A0).withOpacity(0.05),
+                  blurRadius: 48.0,
+                  spreadRadius: 1,
+                  offset: Offset(0.0, 50.0))
+            ],
+            borderRadius: BorderRadius.circular(20.0),
+          ),
+          child: ListTile(
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(20.0),
+            ),
+            leading: CircleAvatar(
+              backgroundColor: Color(0xFFF5F7FA),
+              child: Text(
+                leading,
+                style: TextStyle(
+                    fontFamily: 'Manrope',
+                    fontSize: 17.0,
+                    fontWeight: FontWeight.w700,
+                    color: Color(0xFF243656)),
+              ),
+            ),
+            title: Text(
+              title,
+              style: TextStyle(
+                  fontFamily: 'Manrope',
+                  fontSize: 16,
+                  fontWeight: FontWeight.w400,
+                  color: Color(0xFF243656)),
+            ),
+            subtitle: Text(
+              sub,
+              style: TextStyle(
+                  fontFamily: 'Manrope',
+                  fontSize: 12,
+                  fontWeight: FontWeight.w400,
+                  color: Color(0xFF243656).withOpacity(0.5)),
+            ),
+          ),
+        ),
       ),
     );
   }

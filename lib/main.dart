@@ -9,7 +9,7 @@ import 'package:paypal_redesign/screens/wallet/wallet.dart';
 
 void main() {
   runApp(MaterialApp(
-    home: SendMoney(),
+    home: Contacts(),
     debugShowCheckedModeBanner: false,
   ));
 }
