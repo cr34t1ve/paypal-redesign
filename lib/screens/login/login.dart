@@ -48,8 +48,8 @@ class _LoginState extends State<Login> {
                         contentPadding: EdgeInsets.fromLTRB(20, 25, 20, 25),
                         border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(20.0),
-                            borderSide:
-                                BorderSide(color: Color(0xFFF5F7FA), width: 1.0)),
+                            borderSide: BorderSide(
+                                color: Color(0xFFF5F7FA), width: 1.0)),
                         enabledBorder: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(20.0),
                             borderSide: BorderSide(
@@ -74,8 +74,8 @@ class _LoginState extends State<Login> {
                         contentPadding: EdgeInsets.fromLTRB(20, 25, 20, 25),
                         border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(20.0),
-                            borderSide:
-                                BorderSide(color: Color(0xFFF5F7FA), width: 1.0)),
+                            borderSide: BorderSide(
+                                color: Color(0xFFF5F7FA), width: 1.0)),
                         enabledBorder: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(20.0),
                             borderSide: BorderSide(
@@ -117,7 +117,9 @@ class _LoginState extends State<Login> {
                         fontWeight: FontWeight.w600,
                         fontSize: 16),
                   ),
-                  onPressed: () {}),
+                  onPressed: () {
+                    Navigator.popAndPushNamed(context, '/navpage');
+                  }),
             ),
             SizedBox(
               height: 67.0,

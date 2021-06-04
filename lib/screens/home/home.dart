@@ -229,17 +229,18 @@ class _HomeState extends State<Home> {
                           fontWeight: FontWeight.w600,
                           color: Color(0xFF243656)),
                     ),
-                    Row(
-                      children: [
-                        Text(
-                          'View all',
-                          style: TextStyle(
-                              fontFamily: 'Manrope',
-                              fontSize: 12,
-                              fontWeight: FontWeight.w400,
-                              color: Color(0xFF243656)),
-                        ),
-                      ],
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.pushNamed(context, '/activity');
+                      },
+                      child: Text(
+                        'View all',
+                        style: TextStyle(
+                            fontFamily: 'Manrope',
+                            fontSize: 12,
+                            fontWeight: FontWeight.w400,
+                            color: Color(0xFF243656)),
+                      ),
                     )
                   ],
                 ),
@@ -247,26 +248,23 @@ class _HomeState extends State<Home> {
                   height: 15.0,
                 ),
                 HistoryTile(
-                  leading: 'assets/images/M.svg',
-                  title: 'Mike Rine',
-                  sub: '2 hours ago',
-                  trailing: '+\$250',
-                  color: Color(0xFF37D39B)
-                ),
+                    leading: 'assets/images/M.svg',
+                    title: 'Mike Rine',
+                    sub: '2 hours ago',
+                    trailing: '+\$250',
+                    color: Color(0xFF37D39B)),
                 HistoryTile(
-                  leading: 'assets/images/Vectorgdrive.svg',
-                  title: 'Google Drive',
-                  sub: 'Yesterday',
-                  trailing: '-\$138.5',
-                  color: Color(0xFFF47090)
-                ),
+                    leading: 'assets/images/Vectorgdrive.svg',
+                    title: 'Google Drive',
+                    sub: 'Yesterday',
+                    trailing: '-\$138.5',
+                    color: Color(0xFFF47090)),
                 HistoryTile(
-                  leading: 'assets/images/C.svg',
-                  title: 'Casey Smith',
-                  sub: '1 week ago',
-                  trailing: '+\$531',
-                  color: Color(0xFF37D39B)
-                ),
+                    leading: 'assets/images/C.svg',
+                    title: 'Casey Smith',
+                    sub: '1 week ago',
+                    trailing: '+\$531',
+                    color: Color(0xFF37D39B)),
               ],
             ),
           )

@@ -9,8 +9,9 @@ import 'package:paypal_redesign/screens/sendmoney/sendmoney.dart';
 
 void main() {
   runApp(MaterialApp(
-    home: Contacts(),
+    // home: Contacts(),
     debugShowCheckedModeBanner: false,
+    initialRoute: '/',
     routes: {
       '/': (context) => Login(),
       '/navpage': (context) => NavPage(),
